@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Counseling / Discipline Record</title>
+    <title>Incident Report</title>
     <style>
         :root{
-            --green-1: #28a745;        /* primary green */
-            --green-2: #20c997;        /* secondary/teal green */
-            --green-rgba: 40,167,69;   /* RGB for shadows */
+            --accent: #e0b400;
+            --accent-2: #ffe082;
+            --accent-rgba: 224,180,0;   /* RGB for shadows */
         }
 
         * {
@@ -19,7 +19,7 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, var(--green-1) 0%, var(--green-2) 100%);
+            background: linear-gradient(135deg, #fff9c4 0%, #ffe082 100%);
             padding: 20px;
             min-height: 100vh;
         }
@@ -38,7 +38,7 @@
             margin-bottom: 35px;
             font-size: 28px;
             color: #333;
-            border-bottom: 3px solid var(--green-1);
+            border-bottom: 3px solid var(--accent);
             padding-bottom: 15px;
         }
 
@@ -77,8 +77,8 @@
         input[type="text"]:focus,
         input[type="datetime-local"]:focus {
             outline: none;
-            border-color: var(--green-1);
-            box-shadow: 0 0 0 3px rgba(var(--green-rgba), 0.06);
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(var(--accent-rgba), 0.06);
         }
 
         .section-title {
@@ -86,10 +86,10 @@
             margin-top: 30px;
             margin-bottom: 20px;
             font-size: 16px;
-            color: var(--green-1);
+            color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 1px;
-            border-left: 4px solid var(--green-1);
+            border-left: 4px solid var(--accent);
             padding-left: 12px;
         }
 
@@ -114,7 +114,7 @@
             width: 18px;
             height: 18px;
             cursor: pointer;
-            accent-color: var(--green-1);
+            accent-color: var(--accent);
         }
 
         .checkbox-item label {
@@ -146,8 +146,8 @@
 
         textarea:focus {
             outline: none;
-            border-color: var(--green-1);
-            box-shadow: 0 0 0 3px rgba(var(--green-rgba), 0.06);
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(var(--accent-rgba), 0.06);
         }
 
         .action-grid {
@@ -167,7 +167,7 @@
             margin-right: 8px;
             width: 18px;
             height: 18px;
-            accent-color: var(--green-1);
+            accent-color: var(--accent);
         }
 
         .suspension-item label {
@@ -197,7 +197,7 @@
 
         .signature-section {
             margin-top: 40px;
-            min-height: 450px;
+            
         }
 
         .signature-row {
@@ -210,7 +210,7 @@
 
         /* Signature Display Box (smaller, shows result) */
         .signature-display-box {
-            border: 2px solid var(--green-1);
+            border: 2px solid var(--accent);
             border-radius: 8px;
             background-color: #fafafa;
             cursor: pointer;
@@ -224,7 +224,7 @@
         }
 
         .signature-display-box:hover {
-            box-shadow: 0 4px 12px rgba(var(--green-rgba), 0.12);
+            box-shadow: 0 4px 12px rgba(var(--accent-rgba), 0.12);
             background-color: #f0f0f0;
         }
 
@@ -244,7 +244,7 @@
             position: absolute;
             top: 5px;
             right: 5px;
-            background-color: var(--green-1);
+            background-color: var(--accent);
             color: white;
             border: none;
             padding: 4px 8px;
@@ -260,7 +260,7 @@
         }
 
         .signature-edit-btn:hover {
-            background-color: #218838;
+            background-color: #ffd95a;
         }
 
         /* Modal Overlay */
@@ -297,13 +297,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid var(--green-1);
+            border-bottom: 2px solid var(--accent);
             padding-bottom: 15px;
         }
 
         .signature-modal-header h3 {
             margin: 0;
-            color: var(--green-1);
+            color: var(--accent);
             font-size: 20px;
         }
 
@@ -325,7 +325,7 @@
 
         /* Large Drawing Canvas */
         .signature-canvas-wrapper {
-            border: 3px solid var(--green-1);
+            border: 3px solid var(--accent);
             border-radius: 8px;
             background-color: white;
             cursor: crosshair;
@@ -345,7 +345,7 @@
         }
 
         .btn-submit-signature {
-            background: linear-gradient(135deg, var(--green-1) 0%, var(--green-2) 100%);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
             color: white;
             padding: 12px 30px;
             border: none;
@@ -358,7 +358,7 @@
 
         .btn-submit-signature:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(var(--green-rgba), 0.35);
+            box-shadow: 0 4px 15px rgba(var(--accent-rgba), 0.35);
         }
 
         .btn-cancel-signature {
@@ -415,14 +415,14 @@
         }
 
         .btn-print {
-            background: linear-gradient(135deg, var(--green-1) 0%, var(--green-2) 100%);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
             color: white;
-            box-shadow: 0 4px 15px rgba(var(--green-rgba), 0.35);
+            box-shadow: 0 4px 15px rgba(var(--accent-rgba), 0.35);
         }
 
         .btn-print:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(var(--green-rgba), 0.55);
+            box-shadow: 0 6px 20px rgba(var(--accent-rgba), 0.55);
         }
 
         .btn-clear {
@@ -489,7 +489,7 @@
                 margin-top: 40px;
                 margin-bottom: 80px;
                 padding-bottom: 40px;
-                min-height: 400px;
+                
             }
             
             /* Prevent breaking individual signature rows */
@@ -601,185 +601,273 @@
         .button-container { flex-wrap: wrap; }
         .send-note { text-align: center; font-size: 13px; color: #666; margin-top: 14px; }
         @media print { .send-note { display: none; } }
+    
+        /* ==================== INCIDENT FORM ADDITIONS ==================== */
+        :root { --accent-text: #8a6a00; --btn-text: #4a3900; }
+        [hidden] { display: none !important; }
+        input[type="date"], input[type="time"], input[type="tel"], input[type="email"] {
+            padding: 10px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 14px; font-family: Arial, sans-serif;
+        }
+        input[type="date"]:focus, input[type="time"]:focus, input[type="tel"]:focus, input[type="email"]:focus {
+            outline: none; border-color: var(--accent);
+        }
+        .section-title, .signature-modal-header h3 { color: var(--accent-text); }
+        .btn-print, .btn-submit-signature {
+            background: linear-gradient(135deg, #fff3a3 0%, #ffd95a 100%); color: var(--btn-text);
+        }
+        .signature-edit-btn { background-color: #ffe58a; color: var(--btn-text); }
+        .checkbox-item input[type="radio"], .yn input[type="radio"], .type-option input[type="radio"] {
+            width: 18px; height: 18px; cursor: pointer; accent-color: var(--accent);
+        }
+        .checkbox-item label, .yn label, .type-option label { cursor: pointer; }
+        .type-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 10px; }
+        .type-option {
+            display: flex; align-items: center; gap: 10px; padding: 14px;
+            border: 2px solid #f0e2a0; border-radius: 8px; background-color: #fffdf0;
+        }
+        .type-option label { margin: 0; }
+        .type-option:has(input:checked) { border-color: var(--accent); background-color: #fff6c9; }
+        .inline-choice { display: flex; flex-wrap: wrap; gap: 22px; padding: 14px; background-color: #f8f9fa; border-radius: 8px; margin-bottom: 20px; }
+        .yn-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 24px; padding: 14px; background-color: #f8f9fa; border-radius: 8px; margin-bottom: 20px; }
+        .yn { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 14px; }
+        .yn .yn-opts { display: flex; gap: 14px; white-space: nowrap; }
+        .yn label { font-weight: normal; margin: 0 0 0 4px; }
+        .yn .yn-opts span { display: inline-flex; align-items: center; }
+        .field-note { font-size: 13px; color: #666; font-style: italic; margin-bottom: 6px; }
+        .certify { font-weight: bold; font-size: 14px; margin: 30px 0 20px; }
+        .ack-box { background-color: #fff9e6; border: 1px solid #e6d89f; padding: 15px; margin: 20px 0; border-radius: 4px; line-height: 1.7; font-size: 14px; }
+        .ack-fill { font-weight: bold; text-decoration: underline; }
+        details.procedure { background-color: #fffbe0; border: 1px solid #f0e2a0; border-radius: 8px; padding: 14px 18px; margin-bottom: 25px; font-size: 14px; line-height: 1.6; }
+        details.procedure summary { font-weight: bold; cursor: pointer; color: var(--accent-text); }
+        details.procedure ol { margin: 12px 0 0 20px; }
+        details.procedure li { margin-bottom: 6px; }
+        .signature-section { margin-top: 10px; }
+        .cc-row { max-width: 420px; margin: 30px auto 0; }
+        @media print {
+            details.procedure, .type-chooser, .cc-row { display: none !important; }
+            .ack-box { page-break-inside: avoid; break-inside: avoid; }
+            .yn-grid, .inline-choice { page-break-inside: avoid; break-inside: avoid; padding: 8px 14px; margin-bottom: 12px; }
+            h1 { font-size: 20px; margin-bottom: 12px; padding-bottom: 8px; }
+            .section-title { margin-top: 14px; margin-bottom: 8px; page-break-after: avoid; break-after: avoid; }
+            .form-row { margin-bottom: 8px; gap: 14px; }
+            input[type="text"], input[type="date"], input[type="time"], input[type="tel"] { padding: 6px 8px; }
+            .checkbox-grid { padding: 8px 14px; margin-bottom: 12px; }
+            .certify { margin: 16px 0 10px; page-break-after: avoid; break-after: avoid; }
+            .signature-section { page-break-inside: auto !important; break-inside: auto !important; margin: 8px 0 0; padding-bottom: 0; }
+            .signature-row { margin-bottom: 8px; }
+            .signature-display-box { height: 52px; min-height: 52px; }
+            .signature-placeholder { visibility: hidden; }
+            .container { padding: 0; }
+            .print-text { min-height: 56px; padding: 8px; }
+            label { margin-bottom: 3px; font-size: 13px; }
+            .ack-box { margin: 12px 0; padding: 10px 12px; line-height: 1.5; }
+            .field-note { font-size: 12px; margin-bottom: 4px; }
+        }
+        @media (max-width: 768px) {
+            .type-grid, .yn-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Counseling / Discipline Record</h1>
+        <h1 id="formHeading">Incident Report</h1>
 
-        <form id="counselingForm" autocomplete="off">
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="employeeName">Employee Name:</label>
-                    <input type="text" id="employeeName" name="employeeName">
+        <details class="procedure">
+            <summary>Reporting procedure (tap to open)</summary>
+            <ol>
+                <li>Immediately report any accident, incident or injury to a supervisor or manager.</li>
+                <li>Determine the extent of injuries. If medical treatment is needed, call the nearest Urgent Care clinic provided by DP Management. Contact Human Resources <strong>before</strong> the employee leaves the store so an Authorization to Treat Form can be submitted.</li>
+                <li>If the condition warrants, or it is after hours, call an ambulance or other emergency personnel.</li>
+                <li>A statement must be completed by the customer or employee involved and by 2 eyewitnesses. If the person involved will not complete and sign, a witness completes it as closely as possible and notes that they would not sign.</li>
+                <li>The manager or supervisor on duty completes the Manager Incident Report and the Investigation of Incident immediately after the incident.</li>
+                <li>Photograph the area or hazard as soon as possible, with a date/time stamp if you can.</li>
+                <li>If there is video monitoring, review the footage, preserve it, and be ready to submit it.</li>
+                <li>Send all reports, photos and video to your Area Coach and Human Resources within <strong>24 hours</strong> of the incident.</li>
+            </ol>
+        </details>
+
+        <form id="incidentForm" autocomplete="off">
+            <div class="type-chooser">
+                <div class="section-title">Which report are you completing?</div>
+                <div class="type-grid">
+                    <div class="type-option"><input type="radio" id="typeStatement" name="reportType" value="statement"><label for="typeStatement">Statement (employee, customer or eyewitness)</label></div>
+                    <div class="type-option"><input type="radio" id="typeManager" name="reportType" value="manager"><label for="typeManager">Manager Incident Report</label></div>
+                    <div class="type-option"><input type="radio" id="typeInvestigation" name="reportType" value="investigation"><label for="typeInvestigation">Investigation of Incident</label></div>
+                    <div class="type-option"><input type="radio" id="typeRefusal" name="reportType" value="refusal"><label for="typeRefusal">Refusal of Medical Treatment</label></div>
                 </div>
-                <div class="form-group">
-                    <label for="location">Location:</label>
-                    <input type="text" id="location" name="location">
-                </div>
+                <div class="field-note">Each person completes their own report on a blank form. Finish and send yours, then press Clear Form before the next person starts.</div>
             </div>
 
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="supervisorName">Supervisor Name:</label>
-                    <input type="text" id="supervisorName" name="supervisorName">
-                </div>
-                <div class="form-group">
-                    <label for="dateTime">Date and Time of Occurrence:</label>
-                    <input type="datetime-local" id="dateTime" name="dateTime">
-                </div>
+            <div id="reportBody" hidden>
+            <div class="section-title">The Incident</div>
+            <div class="form-row"><div class="form-group"><label for="personInvolved">Name of Person Involved:</label><input type="text" id="personInvolved" name="personInvolved"></div><div class="form-group"><label for="store">Store / Location:</label><input type="text" id="store" name="store"></div></div>
+            <div class="form-row"><div class="form-group"><label for="incidentDate">Date of Incident:</label><input type="date" id="incidentDate" name="incidentDate"></div><div class="form-group"><label for="incidentTime">Time of Incident:</label><input type="time" id="incidentTime" name="incidentTime"></div></div>
+            <div class="form-row full"><div class="form-group"><label for="incidentPlace">Where exactly it happened (be specific):</label><input type="text" id="incidentPlace" name="incidentPlace"></div></div>
+
+            <!-- ============ STATEMENT ============ -->
+            <div class="report-section" data-type="statement" hidden>
+            <div class="section-title">Your Statement</div>
+            <div class="inline-choice" data-q="I am the"><div class="checkbox-item"><input type="radio" id="stRole0" name="stRole" value="Employee Involved"><label for="stRole0">Employee Involved</label></div><div class="checkbox-item"><input type="radio" id="stRole1" name="stRole" value="Customer Involved"><label for="stRole1">Customer Involved</label></div><div class="checkbox-item"><input type="radio" id="stRole2" name="stRole" value="Eyewitness"><label for="stRole2">Eyewitness</label></div></div>
+            <div class="form-row"><div class="form-group"><label for="stName">Your Name:</label><input type="text" id="stName" name="stName"></div><div class="form-group"><label for="stPhone">Telephone Number:</label><input type="tel" id="stPhone" name="stPhone"></div></div>
+            <div class="form-row"><div class="form-group"><label for="stAddress">Home Address (street, city, state, zip):</label><input type="text" id="stAddress" name="stAddress"></div><div class="form-group"><label for="stPhone2">Other Phone:</label><input type="tel" id="stPhone2" name="stPhone2"></div></div>
+            <div class="form-row"><div class="form-group"><label for="stLighting">Lighting (dim, bright, dark):</label><input type="text" id="stLighting" name="stLighting"></div><div class="form-group"><label for="stWeather">Weather (sunny, rain, etc.):</label><input type="text" id="stWeather" name="stWeather"></div></div>
+            <div class="form-row full"><div class="form-group"><label for="stInjury">Part of body injured and in what way:</label><input type="text" id="stInjury" name="stInjury"></div></div>
+            <div class="checkbox-grid"><div class="checkbox-item"><input type="checkbox" id="stNoInjury" name="stNoInjury" value="yes"><label for="stNoInjury">No injury</label></div></div>
+            <div class="yn-grid"><div class="yn" data-q="Was there property damage?"><span>Was there property damage?</span><span class="yn-opts">
+                        <span><input type="radio" id="stDamageY" name="stDamage" value="Yes"><label for="stDamageY">Yes</label></span>
+                        <span><input type="radio" id="stDamageN" name="stDamage" value="No"><label for="stDamageN">No</label></span></span></div></div>
+            <div class="form-row full"><div class="form-group"><label for="stDamageDetail">If yes, what was damaged and how:</label><input type="text" id="stDamageDetail" name="stDamageDetail"></div></div>
+            <div class="form-row full"><div class="form-group"><label for="stNarrative">In your own words, describe fully how the incident happened:</label><div class="field-note">Include what you were doing just before and during the incident and the chain of events leading up to it. Use words such as pushing, pulling, climbing. Note any objects, equipment or tools involved and anything in the work environment that contributed.</div>
+                    <textarea id="stNarrative" name="stNarrative" class="textarea-expanding" placeholder="Describe what happened..."></textarea>
+                    <div class="print-text" data-for="stNarrative"></div></div></div>
+            <div class="checkbox-grid"><div class="checkbox-item"><input type="checkbox" id="stWouldNotSign" name="stWouldNotSign" value="yes"><label for="stWouldNotSign">Completed by a witness because the person involved would not complete or sign</label></div></div>
+            <p class="certify">I certify that the information provided on this form is true and accurate to the best of my knowledge.</p>
+            <div class="signature-section"><div class="signature-row">
+                    <div class="form-group"><label>Signature:</label>
+                        <div class="signature-display-box" onclick="openSignatureModal('stSignature')">
+                            <img id="stSignature-img" alt="" style="display: none;">
+                            <span class="signature-placeholder">Click to sign</span>
+                            <button type="button" class="signature-edit-btn" onclick="event.stopPropagation(); openSignatureModal('stSignature')">Edit</button>
+                        </div></div>
+                    <div class="form-group"><label for="stSigDate">Date:</label><input type="date" id="stSigDate" name="stSigDate"></div>
+                </div></div>
             </div>
 
-            <div class="section-title">The following Counseling is taking place. Check all that apply and give details in the summary below:</div>
-
-            <div class="checkbox-grid">
-                <div class="checkbox-item">
-                    <input type="checkbox" id="absenteeism" name="violation" value="absenteeism">
-                    <label for="absenteeism">Absenteeism / Tardiness</label>
-                </div>
-                <div class="checkbox-item">
-                    <input type="checkbox" id="inappropriate" name="violation" value="inappropriate">
-                    <label for="inappropriate">Inappropriate Behavior</label>
-                </div>
-                <div class="checkbox-item">
-                    <input type="checkbox" id="policy" name="violation" value="policy">
-                    <label for="policy">Policy / Procedure Violation</label>
-                </div>
-                <div class="checkbox-item">
-                    <input type="checkbox" id="performance" name="violation" value="performance">
-                    <label for="performance">Unsatisfactory Job Performance</label>
-                </div>
-                <div class="checkbox-item">
-                    <input type="checkbox" id="safety" name="violation" value="safety">
-                    <label for="safety">Safety Violation</label>
-                </div>
-                <div class="checkbox-item">
-                    <input type="checkbox" id="insubordination" name="violation" value="insubordination">
-                    <label for="insubordination">Insubordination</label>
-                </div>
-                <div class="checkbox-item">
-                    <input type="checkbox" id="cash" name="violation" value="cash">
-                    <label for="cash">Cash Violation / Theft</label>
-                </div>
-                <div class="checkbox-item">
-                    <input type="checkbox" id="other" name="violation" value="other">
-                    <label for="other">Other</label>
-                </div>
+            <!-- ============ MANAGER ============ -->
+            <div class="report-section" data-type="manager" hidden>
+            <div class="section-title">Manager Report</div>
+            <div class="inline-choice" data-q="Completed by"><div class="checkbox-item"><input type="radio" id="mgRole0" name="mgRole" value="Shift Lead"><label for="mgRole0">Shift Lead</label></div><div class="checkbox-item"><input type="radio" id="mgRole1" name="mgRole" value="Assistant General Manager"><label for="mgRole1">Assistant General Manager</label></div><div class="checkbox-item"><input type="radio" id="mgRole2" name="mgRole" value="General Manager"><label for="mgRole2">General Manager</label></div></div>
+            <div class="form-row"><div class="form-group"><label for="mgName">Your Name:</label><input type="text" id="mgName" name="mgName"></div><div class="form-group"><label for="mgDateReported">Date Reported:</label><input type="date" id="mgDateReported" name="mgDateReported"></div></div>
+            <div class="form-row"><div class="form-group"><label for="mgInjuryType">Type of Injury:</label><input type="text" id="mgInjuryType" name="mgInjuryType"></div><div class="form-group"><label for="mgBodyPart">Part of Body:</label><input type="text" id="mgBodyPart" name="mgBodyPart"></div></div>
+            <div class="form-row full"><div class="form-group"><label for="mgActivity">Specific activity engaged in when incident occurred:</label><input type="text" id="mgActivity" name="mgActivity"></div></div>
+            <div class="form-row"><div class="form-group"><label for="mgLighting">Lighting (dim, bright, dark):</label><input type="text" id="mgLighting" name="mgLighting"></div><div class="form-group"><label for="mgWeather">Weather (sunny, rain, etc.):</label><input type="text" id="mgWeather" name="mgWeather"></div></div>
+            <div class="yn-grid">
+                <div class="yn" data-q="Photo taken? (attach to email)"><span>Photo taken? (attach to email)</span><span class="yn-opts">
+                        <span><input type="radio" id="mgPhotoY" name="mgPhoto" value="Yes"><label for="mgPhotoY">Yes</label></span>
+                        <span><input type="radio" id="mgPhotoN" name="mgPhoto" value="No"><label for="mgPhotoN">No</label></span></span></div>
+                <div class="yn" data-q="Video footage reviewed?"><span>Video footage reviewed?</span><span class="yn-opts">
+                        <span><input type="radio" id="mgVideoY" name="mgVideo" value="Yes"><label for="mgVideoY">Yes</label></span>
+                        <span><input type="radio" id="mgVideoN" name="mgVideo" value="No"><label for="mgVideoN">No</label></span></span></div>
+                <div class="yn" data-q="Injured person interviewed?"><span>Injured person interviewed?</span><span class="yn-opts">
+                        <span><input type="radio" id="mgInterviewedY" name="mgInterviewed" value="Yes"><label for="mgInterviewedY">Yes</label></span>
+                        <span><input type="radio" id="mgInterviewedN" name="mgInterviewed" value="No"><label for="mgInterviewedN">No</label></span></span></div>
+                <div class="yn" data-q="Eyewitness interviewed?"><span>Eyewitness interviewed?</span><span class="yn-opts">
+                        <span><input type="radio" id="mgWitnessY" name="mgWitness" value="Yes"><label for="mgWitnessY">Yes</label></span>
+                        <span><input type="radio" id="mgWitnessN" name="mgWitness" value="No"><label for="mgWitnessN">No</label></span></span></div>
+                <div class="yn" data-q="First aid administered?"><span>First aid administered?</span><span class="yn-opts">
+                        <span><input type="radio" id="mgFirstAidY" name="mgFirstAid" value="Yes"><label for="mgFirstAidY">Yes</label></span>
+                        <span><input type="radio" id="mgFirstAidN" name="mgFirstAid" value="No"><label for="mgFirstAidN">No</label></span></span></div>
+                <div class="yn" data-q="Taken to hospital / clinic?"><span>Taken to hospital / clinic?</span><span class="yn-opts">
+                        <span><input type="radio" id="mgHospitalY" name="mgHospital" value="Yes"><label for="mgHospitalY">Yes</label></span>
+                        <span><input type="radio" id="mgHospitalN" name="mgHospital" value="No"><label for="mgHospitalN">No</label></span></span></div>
+                <div class="yn" data-q="Was there property damage?"><span>Was there property damage?</span><span class="yn-opts">
+                        <span><input type="radio" id="mgDamageY" name="mgDamage" value="Yes"><label for="mgDamageY">Yes</label></span>
+                        <span><input type="radio" id="mgDamageN" name="mgDamage" value="No"><label for="mgDamageN">No</label></span></span></div>
+            </div>
+            <div class="form-row full"><div class="form-group"><label for="mgDamageDetail">If yes, what was damaged and how:</label><input type="text" id="mgDamageDetail" name="mgDamageDetail"></div></div>
+            <div class="form-row full"><div class="form-group"><label for="mgNarrative">Describe fully how the incident happened:</label><div class="field-note">Include what the person was doing just before and during the incident and the chain of events leading up to it. Use words such as pushing, pulling, climbing. Note any objects, equipment or tools involved and anything in the work environment that contributed.</div>
+                    <textarea id="mgNarrative" name="mgNarrative" class="textarea-expanding" placeholder="Describe what happened..."></textarea>
+                    <div class="print-text" data-for="mgNarrative"></div></div></div>
+            <p class="certify">I certify that the information provided on this form is true and accurate to the best of my knowledge.</p>
+            <div class="signature-section"><div class="signature-row">
+                    <div class="form-group"><label>Manager Signature:</label>
+                        <div class="signature-display-box" onclick="openSignatureModal('mgSignature')">
+                            <img id="mgSignature-img" alt="" style="display: none;">
+                            <span class="signature-placeholder">Click to sign</span>
+                            <button type="button" class="signature-edit-btn" onclick="event.stopPropagation(); openSignatureModal('mgSignature')">Edit</button>
+                        </div></div>
+                    <div class="form-group"><label for="mgSigDate">Date:</label><input type="date" id="mgSigDate" name="mgSigDate"></div>
+                </div></div>
             </div>
 
-            <div class="form-row full">
-                <div class="form-group">
-                    <label for="violationSummary">Summary of Violation</label>
-                    <textarea id="violationSummary" name="violationSummary" class="textarea-expanding" placeholder="Enter detailed description of the violation..."></textarea>
-                    <div class="print-text" data-for="violationSummary"></div>
-                </div>
+            <!-- ============ INVESTIGATION ============ -->
+            <div class="report-section" data-type="investigation" hidden>
+            <div class="section-title">Investigation</div>
+            <div class="inline-choice" data-q="Completed by"><div class="checkbox-item"><input type="radio" id="invRole0" name="invRole" value="Area Coach"><label for="invRole0">Area Coach</label></div><div class="checkbox-item"><input type="radio" id="invRole1" name="invRole" value="General Manager"><label for="invRole1">General Manager</label></div></div>
+            <div class="form-row"><div class="form-group"><label for="invName">Your Name:</label><input type="text" id="invName" name="invName"></div><div class="form-group"><label for="invDateReported">Date Reported:</label><input type="date" id="invDateReported" name="invDateReported"></div></div>
+            <div class="form-row full"><div class="form-group"><label for="invPrevention">Explain how similar incidents should be prevented:</label><div class="field-note">Consider training, communication, policies / procedures and inspections.</div>
+                    <textarea id="invPrevention" name="invPrevention" class="textarea-expanding" placeholder="Enter prevention steps..."></textarea>
+                    <div class="print-text" data-for="invPrevention"></div></div></div>
+            <div class="yn-grid"><div class="yn" data-q="Any action taken to prevent similar incidents?"><span>Any action taken to prevent similar incidents?</span><span class="yn-opts">
+                        <span><input type="radio" id="invActionY" name="invAction" value="Yes"><label for="invActionY">Yes</label></span>
+                        <span><input type="radio" id="invActionN" name="invAction" value="No"><label for="invActionN">No</label></span></span></div></div>
+            <div class="form-row full"><div class="form-group"><label for="invActionDetail">If yes, describe the action taken:</label>
+                    <textarea id="invActionDetail" name="invActionDetail" class="textarea-expanding" placeholder="Describe action taken..."></textarea>
+                    <div class="print-text" data-for="invActionDetail"></div></div></div>
+            <p class="certify">I certify that the information provided on this form is true and accurate to the best of my knowledge.</p>
+            <div class="signature-section"><div class="signature-row">
+                    <div class="form-group"><label>Signature:</label>
+                        <div class="signature-display-box" onclick="openSignatureModal('invSignature')">
+                            <img id="invSignature-img" alt="" style="display: none;">
+                            <span class="signature-placeholder">Click to sign</span>
+                            <button type="button" class="signature-edit-btn" onclick="event.stopPropagation(); openSignatureModal('invSignature')">Edit</button>
+                        </div></div>
+                    <div class="form-group"><label for="invSigDate">Date:</label><input type="date" id="invSigDate" name="invSigDate"></div>
+                </div></div>
             </div>
 
-            <div class="section-title">Action Being Taken:</div>
-
-            <div class="action-grid">
-                <div class="checkbox-item">
-                    <input type="checkbox" id="coaching" name="action" value="coaching">
-                    <label for="coaching">Coaching</label>
-                </div>
-                <div class="checkbox-item">
-                    <input type="checkbox" id="verbal" name="action" value="verbal">
-                    <label for="verbal">Verbal Warning</label>
-                </div>
-                <div class="checkbox-item">
-                    <input type="checkbox" id="written" name="action" value="written">
-                    <label for="written">Written Warning</label>
-                </div>
-                <div class="checkbox-item suspension-item">
-                    <input type="checkbox" id="suspension" name="action" value="suspension">
-                    <label for="suspension">Suspension</label>
-                    <input type="number" id="suspensionDays" min="1" max="365" placeholder="Days">
-                    <span>Day(s)</span>
-                </div>
-                <div class="checkbox-item">
-                    <input type="checkbox" id="termination" name="action" value="termination">
-                    <label for="termination">Termination</label>
-                </div>
-                <div class="checkbox-item">
-                    <input type="checkbox" id="otherAction" name="action" value="otherAction">
-                    <label for="otherAction">Other</label>
-                </div>
+            <!-- ============ REFUSAL ============ -->
+            <div class="report-section" data-type="refusal" hidden>
+            <div class="section-title">Refusal of Medical Treatment or Observation</div>
+            <div class="form-row"><div class="form-group"><label for="refSupervisor">Supervisor on Duty:</label><input type="text" id="refSupervisor" name="refSupervisor"></div><div class="form-group"><label for="refWitnesses">Witness(es):</label><input type="text" id="refWitnesses" name="refWitnesses"></div></div>
+            <div class="form-row full"><div class="form-group"><label for="refInjury">Nature of injury / condition and body part(s) injured:</label><input type="text" id="refInjury" name="refInjury"></div></div>
+            <div class="form-row full"><div class="form-group"><label for="refNarrative">Brief description of the incident:</label>
+                    <textarea id="refNarrative" name="refNarrative" class="textarea-expanding" placeholder="Describe briefly..."></textarea>
+                    <div class="print-text" data-for="refNarrative"></div></div></div>
+            <div class="ack-box">
+                I, <span class="ack-fill" id="ackName">____________________</span>, hereby acknowledge my refusal of medical treatment and/or observation offered to me for the injury I incurred on <span class="ack-fill" id="ackDate">____/____/______</span>. I acknowledge that I have been offered and made available to me an opportunity to seek necessary medical treatment and/or observation. I am aware that by declining medical treatment at this time, DP Management may not be responsible for any medical expenses or lost wages.
             </div>
-
-            <div class="form-row full">
-                <div class="form-group">
-                    <label for="correctiveAction">Summary of Corrective Action Plan. Include Actions and Dates for Improvement Follow Up:</label>
-                    <textarea id="correctiveAction" name="correctiveAction" class="textarea-expanding" placeholder="Enter corrective action plan..."></textarea>
-                    <div class="print-text" data-for="correctiveAction"></div>
-                </div>
-            </div>
-
-            <div class="notice-box">
-                <strong>Employee Notice:</strong><br>
-                Continued violations will result in progressive discipline, up to and including termination of employment.
-            </div>
-
-            <div class="form-row full">
-                <div class="form-group">
-                    <label for="employeeComments">Employee Comments:</label>
-                    <textarea id="employeeComments" name="employeeComments" class="textarea-expanding" placeholder="Employee may add comments here..."></textarea>
-                    <div class="print-text" data-for="employeeComments"></div>
-                </div>
-            </div>
-
             <div class="signature-section">
                 <div class="signature-row">
-                    <div class="form-group">
-                        <label>Employee Signature:</label>
-                        <div class="signature-display-box" onclick="openSignatureModal('empSignature')">
-                            <img id="empSignature-img" style="display: none;">
+                    <div class="form-group"><label>Signature of Person Involved:</label>
+                        <div class="signature-display-box" onclick="openSignatureModal('refSignature')">
+                            <img id="refSignature-img" alt="" style="display: none;">
                             <span class="signature-placeholder">Click to sign</span>
-                            <button type="button" class="signature-edit-btn" onclick="event.stopPropagation(); openSignatureModal('empSignature')">Edit</button>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="empSigDate">Date:</label>
-                        <input type="text" id="empSigDate" name="empSigDate">
-                    </div>
+                            <button type="button" class="signature-edit-btn" onclick="event.stopPropagation(); openSignatureModal('refSignature')">Edit</button>
+                        </div></div>
+                    <div class="form-group"><label for="refSigDate">Date:</label><input type="date" id="refSigDate" name="refSigDate"></div>
                 </div>
-
                 <div class="signature-row">
-                    <div class="form-group">
-                        <label>Supervisor Signature:</label>
-                        <div class="signature-display-box" onclick="openSignatureModal('supSignature')">
-                            <img id="supSignature-img" style="display: none;">
+                    <div class="form-group"><label>Witness Signature:</label>
+                        <div class="signature-display-box" onclick="openSignatureModal('refWit1Signature')">
+                            <img id="refWit1Signature-img" alt="" style="display: none;">
                             <span class="signature-placeholder">Click to sign</span>
-                            <button type="button" class="signature-edit-btn" onclick="event.stopPropagation(); openSignatureModal('supSignature')">Edit</button>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="supSigDate">Date:</label>
-                        <input type="text" id="supSigDate" name="supSigDate">
-                    </div>
+                            <button type="button" class="signature-edit-btn" onclick="event.stopPropagation(); openSignatureModal('refWit1Signature')">Edit</button>
+                        </div></div>
+                    <div class="form-group"><label for="refWit1SigDate">Date:</label><input type="date" id="refWit1SigDate" name="refWit1SigDate"></div>
                 </div>
-
                 <div class="signature-row">
-                    <div class="form-group">
-                        <label>Witness / HR (Optional):</label>
-                        <div class="signature-display-box" onclick="openSignatureModal('witnessSignature')">
-                            <img id="witnessSignature-img" style="display: none;">
+                    <div class="form-group"><label>Second Witness Signature:</label>
+                        <div class="signature-display-box" onclick="openSignatureModal('refWit2Signature')">
+                            <img id="refWit2Signature-img" alt="" style="display: none;">
                             <span class="signature-placeholder">Click to sign</span>
-                            <button type="button" class="signature-edit-btn" onclick="event.stopPropagation(); openSignatureModal('witnessSignature')">Edit</button>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="witnessSigDate">Date:</label>
-                        <input type="text" id="witnessSigDate" name="witnessSigDate">
-                    </div>
+                            <button type="button" class="signature-edit-btn" onclick="event.stopPropagation(); openSignatureModal('refWit2Signature')">Edit</button>
+                        </div></div>
+                    <div class="form-group"><label for="refWit2SigDate">Date:</label><input type="date" id="refWit2SigDate" name="refWit2SigDate"></div>
+                </div>
+                <div class="signature-row">
+                    <div class="form-group"><label>Supervisor Signature:</label>
+                        <div class="signature-display-box" onclick="openSignatureModal('refSupSignature')">
+                            <img id="refSupSignature-img" alt="" style="display: none;">
+                            <span class="signature-placeholder">Click to sign</span>
+                            <button type="button" class="signature-edit-btn" onclick="event.stopPropagation(); openSignatureModal('refSupSignature')">Edit</button>
+                        </div></div>
+                    <div class="form-group"><label for="refSupSigDate">Date:</label><input type="date" id="refSupSigDate" name="refSupSigDate"></div>
                 </div>
             </div>
+            </div>
 
+            <div class="form-group cc-row">
+                <label for="ccEmail">Area Coach email (added as CC on the draft):</label>
+                <input type="email" id="ccEmail" name="ccEmail" placeholder="optional">
+            </div>
             <div class="button-container">
                 <button type="button" class="btn-print" onclick="printForm()">1. Save as PDF</button>
                 <button type="button" class="btn-print" onclick="emailHR()">2. Email to HR</button>
                 <button type="button" class="btn-clear" onclick="clearForm()">Clear Form</button>
             </div>
-            <p class="send-note">Save the signed form as a PDF first, then attach it to the email draft. The draft cannot attach it for you. Nothing you type here is stored on this device.</p>
+            <p class="send-note">Save the signed report as a PDF first, then attach it (and any photos) to the email draft. The draft cannot attach them for you. Nothing you type here is stored on this device.</p>
+            </div>
         </form>
     </div>
 
@@ -829,12 +917,8 @@
             const modal = document.getElementById('signatureModal');
             
             // Set modal title based on which signature
-            const titles = {
-                'empSignature': 'Employee Signature',
-                'supSignature': 'Supervisor Signature',
-                'witnessSignature': 'Witness / HR Signature'
-            };
-            document.getElementById('modalTitle').textContent = titles[signatureId] || 'Sign Here';
+            const box = document.getElementById(signatureId + '-img').closest('.form-group');
+            document.getElementById('modalTitle').textContent = box.querySelector('label').textContent.replace(/:$/, '');
             
             // Clear canvas
             clearModalCanvas();
@@ -1011,62 +1095,80 @@
             autoExpand(textarea);
         });
 
-        // ==================== CLEAR FORM ====================
-        function clearForm() {
-            if (confirm('Are you sure you want to clear all form data and signatures?')) {
-                document.getElementById('counselingForm').reset();
-                
-                // Clear all signatures
-                clearSignatureDisplay('empSignature');
-                clearSignatureDisplay('supSignature');
-                clearSignatureDisplay('witnessSignature');
-                
-                // Reset textarea heights
-                document.querySelectorAll('textarea').forEach(textarea => {
-                    textarea.style.height = 'auto';
-                    autoExpand(textarea);
-                });
-            }
+        // ==================== REPORT TYPE ====================
+        const HR_EMAIL = 'hr@dossaniparadise.com';
+        const TYPE_TITLES = {
+            statement: 'Incident Report - Statement',
+            manager: 'Manager Incident Report',
+            investigation: 'Investigation of Incident',
+            refusal: 'Refusal of Medical Treatment or Observation'
+        };
+        let pdfSaved = false;
+
+        function currentType() {
+            const picked = document.querySelector('input[name="reportType"]:checked');
+            return picked ? picked.value : '';
         }
 
-        function syncPrintText() {
-            document.querySelectorAll('.print-text[data-for]').forEach(printBlock => {
-                const fieldId = printBlock.getAttribute('data-for');
-                const source = document.getElementById(fieldId);
-                printBlock.textContent = source ? source.value : '';
+        function updateType() {
+            const type = currentType();
+            document.getElementById('reportBody').hidden = !type;
+            document.querySelectorAll('.report-section').forEach(section => {
+                section.hidden = section.dataset.type !== type;
             });
+            document.getElementById('formHeading').textContent = TYPE_TITLES[type] || 'Incident Report';
+            document.querySelectorAll('textarea').forEach(autoExpand);
         }
 
-        window.addEventListener('beforeprint', syncPrintText);
+        function updateAcknowledgement() {
+            const name = document.getElementById('personInvolved').value.trim();
+            const date = document.getElementById('incidentDate').value;
+            document.getElementById('ackName').textContent = name || '____________________';
+            document.getElementById('ackDate').textContent = date ? formatDate(date) : '____/____/______';
+        }
+
+        function formatDate(iso) {
+            const parts = iso.split('-');
+            return parts.length === 3 ? parts[1] + '/' + parts[2] + '/' + parts[0] : iso;
+        }
+
+        document.querySelectorAll('input[name="reportType"]').forEach(radio => {
+            radio.addEventListener('change', updateType);
+        });
+        document.getElementById('personInvolved').addEventListener('input', updateAcknowledgement);
+        document.getElementById('incidentDate').addEventListener('input', updateAcknowledgement);
 
         // ==================== PRIVACY: ALWAYS START BLANK ====================
-        const FORM_TITLE = 'Counseling / Discipline Record';
-        const HR_EMAIL = 'hr@dossaniparadise.com';
-
         function resetFormSilently() {
-            document.querySelector('form').reset();
+            document.getElementById('incidentForm').reset();
             document.querySelectorAll('img[id$="-img"]').forEach(img => {
                 clearSignatureDisplay(img.id.replace(/-img$/, ''));
             });
             document.querySelectorAll('.print-text').forEach(el => { el.textContent = ''; });
-            document.querySelectorAll('textarea').forEach(autoExpand);
             pdfSaved = false;
+            updateType();
+            updateAcknowledgement();
         }
 
-        // Remove anything an older version of this form left on the device
-        try {
-            Object.keys(localStorage).forEach(key => {
-                if (key === 'counselingFormData' || key.indexOf('signature_counsel_') === 0) {
-                    localStorage.removeItem(key);
-                }
-            });
-        } catch (e) {}
+        function clearForm() {
+            if (confirm('Are you sure you want to clear all form data and signatures?')) {
+                resetFormSilently();
+                window.scrollTo(0, 0);
+            }
+        }
 
         // Every open, reload or back-navigation gives a blank form
         window.addEventListener('pageshow', resetFormSilently);
 
         // ==================== SAVE PDF + EMAIL TO HR ====================
-        let pdfSaved = false;
+        function syncPrintText() {
+            document.querySelectorAll('.print-text[data-for]').forEach(printBlock => {
+                const source = document.getElementById(printBlock.getAttribute('data-for'));
+                printBlock.textContent = source ? source.value : '';
+            });
+        }
+
+        window.addEventListener('beforeprint', syncPrintText);
 
         function printForm() {
             syncPrintText();
@@ -1076,34 +1178,32 @@
 
         function fieldLabel(el) {
             const label = document.querySelector('label[for="' + el.id + '"]');
-            const text = label ? label.textContent : (el.name || el.id);
-            return text.trim().replace(/:$/, '');
+            return (label ? label.textContent : el.id).trim().replace(/:$/, '');
+        }
+
+        function isActive(el) {
+            return !el.closest('[hidden]');
         }
 
         function buildEmailBody(textLimit) {
-            const groupTitles = { reason: 'Reason(s)', violation: 'Counseling for', action: 'Action taken' };
-            const groups = {};
-            const lines = [FORM_TITLE, '', 'The signed PDF of this form is attached.', ''];
+            const seenGroups = {};
+            const lines = [TYPE_TITLES[currentType()], '', 'The signed PDF of this report is attached.', ''];
 
-            document.querySelectorAll('form input, form textarea').forEach(el => {
-                if (/SigDate$/.test(el.id) || el.id === 'suspensionDays') return;
+            document.querySelectorAll('#reportBody input, #reportBody textarea').forEach(el => {
+                if (!isActive(el) || /SigDate$/.test(el.id) || el.id === 'ccEmail') return;
+                if (el.type === 'radio') {
+                    if (seenGroups[el.name]) return;
+                    seenGroups[el.name] = true;
+                    const picked = document.querySelector('input[name="' + el.name + '"]:checked');
+                    lines.push(el.closest('[data-q]').dataset.q.replace(/\?$/, '') + ': ' + (picked ? picked.value : '-'));
+                    return;
+                }
                 if (el.type === 'checkbox') {
-                    if (!groups[el.name]) {
-                        groups[el.name] = [];
-                        lines.push({ group: el.name });
-                    }
-                    if (el.checked) {
-                        let text = fieldLabel(el);
-                        if (el.id === 'suspension') {
-                            const days = document.getElementById('suspensionDays').value;
-                            if (days) text += ' (' + days + ' day(s))';
-                        }
-                        groups[el.name].push(text);
-                    }
+                    if (el.checked) lines.push(fieldLabel(el));
                     return;
                 }
                 let value = el.value.trim();
-                if (el.type === 'datetime-local') value = value.replace('T', ' ');
+                if (el.type === 'date' && value) value = formatDate(value);
                 if (el.tagName === 'TEXTAREA') {
                     if (!value) return;
                     if (textLimit === 0) {
@@ -1119,34 +1219,33 @@
 
             lines.push('');
             document.querySelectorAll('img[id$="-img"]').forEach(img => {
+                if (!isActive(img)) return;
                 const id = img.id.replace(/-img$/, '');
                 const who = img.closest('.form-group').querySelector('label').textContent.trim().replace(/:$/, '');
                 const dateEl = document.getElementById(id.replace('Signature', '') + 'SigDate');
-                const date = dateEl && dateEl.value ? ', dated ' + dateEl.value : '';
+                const date = dateEl && dateEl.value ? ', dated ' + formatDate(dateEl.value) : '';
                 lines.push(who + ': ' + (signatures[id] ? 'signed' + date : 'not signed'));
             });
 
-            return lines.map(line => {
-                if (typeof line === 'string') return line;
-                const picked = groups[line.group];
-                return (groupTitles[line.group] || line.group) + ': ' + (picked.length ? picked.join('; ') : '-');
-            }).join('\r\n').replace(/(\r\n){3,}/g, '\r\n\r\n');
+            return lines.join('\r\n').replace(/(\r\n){3,}/g, '\r\n\r\n');
         }
 
         function emailHR() {
-            const name = document.getElementById('employeeName').value.trim();
+            const name = document.getElementById('personInvolved').value.trim();
             if (!name) {
-                alert('Please enter the employee name before emailing HR.');
+                alert('Please enter the name of the person involved before emailing HR.');
                 return;
             }
             if (!pdfSaved && !confirm('You have not saved the PDF yet. HR needs the signed PDF attached to the email.\n\nPress OK to draft the email anyway, or Cancel to go back and save the PDF first.')) {
                 return;
             }
-            const subject = FORM_TITLE + ' - ' + name;
+            const subject = TYPE_TITLES[currentType()] + ' - ' + name;
+            const cc = document.getElementById('ccEmail').value.trim();
             let url = '';
             // Mail apps cut off long links, so shorten the long answers until the draft fits
             for (const limit of [1200, 600, 300, 120, 0]) {
-                url = 'mailto:' + HR_EMAIL + '?subject=' + encodeURIComponent(subject) +
+                url = 'mailto:' + HR_EMAIL + '?' + (cc ? 'cc=' + encodeURIComponent(cc) + '&' : '') +
+                      'subject=' + encodeURIComponent(subject) +
                       '&body=' + encodeURIComponent(buildEmailBody(limit));
                 if (url.length <= 1900) break;
             }
@@ -1158,11 +1257,6 @@
             if (e.target === this) {
                 closeSignatureModal();
             }
-        });
-
-        // Prevent modal content clicks from closing modal
-        document.querySelector('.signature-modal-content').addEventListener('click', function(e) {
-            e.stopPropagation();
         });
     </script>
 </body>
